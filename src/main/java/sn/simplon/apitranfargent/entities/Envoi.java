@@ -1,5 +1,7 @@
 package sn.simplon.apitranfargent.entities;
 
+import net.minidev.json.annotate.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,10 +12,12 @@ public class Envoi {
     private int id;
     private String date;
     private String montant;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JsonIgnore
+    @OneToOne
     @JoinColumn(name = "idRecepteur")
     private Recepteur recepteur;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JsonIgnore
+    @OneToOne
     @JoinColumn(name = "idEmetteur")
     private Emetteur emetteur;
 

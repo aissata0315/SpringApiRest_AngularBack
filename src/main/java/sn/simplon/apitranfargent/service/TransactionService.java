@@ -12,6 +12,7 @@ import sn.simplon.apitranfargent.entities.Recepteur;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*",  allowedHeaders = "*")
 public class TransactionService {
     @Autowired
     private IEmetteur emetteurdao;
@@ -55,6 +56,7 @@ public class TransactionService {
     @RequestMapping(value = "/recepteurs",method = RequestMethod.GET)
     public List<Recepteur> getAllRecepteur() {
         return recepteurdao.findAll();
+
     }
 
     @RequestMapping(value = "/envois",method = RequestMethod.GET)

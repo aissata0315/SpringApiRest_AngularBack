@@ -1,5 +1,7 @@
 package sn.simplon.apitranfargent.entities;
 
+import net.minidev.json.annotate.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +15,10 @@ public class Recepteur {
     private String nom;
     private String prenom;
     private String telephone;
-    @OneToMany(mappedBy = "recepteur")
-    private List<Envoi> envois = new ArrayList<>();
+    @OneToOne
+    private Envoi envois ;
 
-    public Recepteur(int id, String nom, String prenom, String telephone, List<Envoi> envois) {
+    public Recepteur(int id, String nom, String prenom, String telephone, Envoi envois) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -55,15 +57,17 @@ public class Recepteur {
         return telephone;
     }
 
+    public Envoi getEnvois() {
+        return envois;
+    }
+
+    public void setEnvois(Envoi envois) {
+        this.envois = envois;
+    }
+
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
 
-    public List<Envoi> getEnvois() {
-        return envois;
-    }
 
-    public void setEnvois(List<Envoi> envois) {
-        this.envois = envois;
-    }
 }

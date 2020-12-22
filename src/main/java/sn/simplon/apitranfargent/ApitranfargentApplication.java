@@ -21,12 +21,12 @@ public class ApitranfargentApplication implements CommandLineRunner  {
     public void run(String... args) throws Exception {
 
         Recepteur recepteur = new Recepteur();
-        recepteur.setNom("Sagna");
-        recepteur.setPrenom("Judith");
-        recepteur.setTelephone("701452023");
+        recepteur.setNom("Ba");
+        recepteur.setPrenom("Aissata");
+        recepteur.setTelephone("774152121");
 
         //recepteurdao.save(recepteur);
-        recepteurdao.findAll().forEach(r-> System.out.println(r.getPrenom()));
+        //recepteurdao.findAll().forEach(r-> System.out.println(r.getPrenom()));
 
     }
 }
